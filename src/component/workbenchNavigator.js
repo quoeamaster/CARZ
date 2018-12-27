@@ -32,6 +32,7 @@ export class WorkbenchNavigator extends React.Component {
    * @private
    */
   _onClick(_delegateId) {
+    if (!this.srv) { return false; }
     switch (_delegateId) {
       case "hamburgerIconClick": {
         return this.srv.getDelegateByName("hamburgerIconClick")();
