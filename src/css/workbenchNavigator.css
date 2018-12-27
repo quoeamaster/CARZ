@@ -1,0 +1,70 @@
+/* sort of like a tag instead of a real css class */
+.workbench {}
+
+.workbench-navigator {
+    height: 50px;
+    background: #457abb;
+    color: #fff;
+    padding-right: 10px;
+    padding-left: 4px;
+}
+.workbench-title {
+    padding-left: 16px;
+    height: 48px;
+    line-height: 48px;
+    vertical-align: baseline;
+    font-size: 16px;
+}
+.workbench-subtitle {
+    color: #bae0ff;
+}
+.workbench-hamburger-icon-container {
+    background: #eee;
+    opacity: 0.08;
+
+    line-height: 48px;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.workbench-hamburger-icon-container:hover {
+    opacity: 0.3;
+}
+.workbench-hamburger-icon {
+    position: relative;
+    /*left: -26px;*/
+    left: 27px;
+    line-height: 48px;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.workbench-option-container {
+    position: absolute;
+    right: 10px;
+}
+.workbench-option {
+    height: 48px;
+    line-height: 48px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+.workbench-option-amber {
+    color: #ffd17b;
+}
+.workbench-option-green {
+    color: #6dde93;
+}
+.workbench-option-red {
+    color: #ff7b7b;
+}
+.workbench-option-blue {
+    color: #94c5ff;
+}
+.workbench-option-grey {
+    color: #dadea8;
+}

@@ -63,3 +63,9 @@ typings/
 # _script folder (for local script features)
 _script/*
 
+# distribution 
+dist/*
+
+# package.json.lock
+package-lock.json
+
