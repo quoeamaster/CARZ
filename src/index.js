@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import {
-  WorkbenchNavigator
+  WorkbenchPage
 } from './component/index';
 
 //import { BaseService } from './service/index';
@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'mdbreact/dist/css/mdb.css';
 
-class WorkbenchContainer extends React.Component {
+class PageContainer extends React.Component {
   constructor(props) {
     super(props);
     this._initServices();
@@ -28,16 +28,22 @@ class WorkbenchContainer extends React.Component {
    * @returns {*}
    */
   render() {
+    /*
+     * TODO: lack of auth2 and session utilities
+     * should be able to swap the "page" based on conditions; for example, there are
+     * public and member page(s); hence certain links might be linking to the login "Page" before
+     * forwarding to the designated Page.
+     */
     return (
       <div>
-        <WorkbenchNavigator srv={ this.workbenchCoreSerivce }  />
+        <WorkbenchPage srv={ this.workbenchCoreSerivce }  />
       </div>
     );
   }
 }
 
 // render the component to an html element (e.g. a div or section)
-ReactDom.render(<WorkbenchContainer />, document.getElementById('main-component'));
+ReactDom.render(<PageContainer />, document.getElementById('main-component'));
 
 /*
 const WorkbenchContainerComponent = () => {

@@ -7,8 +7,13 @@ import './../css/workbenchNavigator.css';
 export class WorkbenchNavigator extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.srv);
-    // setup state if necessary
+    this.srv = null;
+  }
+
+  _init() {
+    if (this.props.srv) {
+      this.srv = this.props.srv.getServiceByName("workbenchNavigatorService");
+    }
   }
 
   /* -------------------- */
@@ -17,7 +22,23 @@ export class WorkbenchNavigator extends React.Component {
 
   componentDidMount() {
     // after mount hook
+    this._init();
   }
+
+  /**
+   * generic onClick handler; call the service.delegate eventually
+   * @param _delegateId
+   * @returns {*}
+   * @private
+   */
+  _onClick(_delegateId) {
+    switch (_delegateId) {
+      case "hamburgerIconClick": {
+        return this.srv.getDelegateByName("hamburgerIconClick")();
+      }
+    }
+  }
+
   /**
    * render method for the component
    * @returns {*}
@@ -25,8 +46,9 @@ export class WorkbenchNavigator extends React.Component {
   render() {
     return (
       <div className="workbench-navigator">
-        <i id="_wbench_icon" className="workbench-hamburger-icon fas fa-dice-d20" />
-        <div id="_wbench_icon_container" className="workbench-hamburger-icon-container cursor-pointer display-inline-block" />
+        <i className="workbench-hamburger-icon fas fa-dice-d20" />
+        <div className="workbench-hamburger-icon-container cursor-pointer display-inline-block"
+             onClick={ () => { this._onClick('hamburgerIconClick'); } } />
         <div className="workbench-title display-inline-block">carz <span className="workbench-subtitle">platform</span></div>
 
         <div className="workbench-option-container display-inline-block">
@@ -38,6 +60,10 @@ export class WorkbenchNavigator extends React.Component {
             iconColor="green"
             label="wiki"
             iconClass="fas fa-book-open normal-spacer-right" />
+          <WorkbenchNavigatorOption
+            iconColor="blue"
+            label="about"
+            iconClass="fas fa-info-circle normal-spacer-right" />
         </div>
       </div>
     );

@@ -13,5 +13,8 @@ export class WorkbenchCoreService {
 
   getServiceByName(_name) {
     return this.services[_name];
+  };
+  updateServiceByName(_name, _srv) {
+    this.services[_name] = _srv;
   }
 };
