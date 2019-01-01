@@ -16,9 +16,19 @@ import 'mdbreact/dist/css/mdb.css';
 class PageContainer extends React.Component {
   constructor(props) {
     super(props);
+    this._initModels();
     this._initServices();
   }
 
+  /**
+   * data model(s) for the application
+   * @private
+   */
+  _initModels() {}
+  /**
+   * service(s) for the application
+   * @private
+   */
   _initServices() {
     this.workbenchCoreSerivce = new WorkbenchCoreService();
   }
@@ -36,7 +46,8 @@ class PageContainer extends React.Component {
      */
     return (
       <div>
-        <WorkbenchPage srv={ this.workbenchCoreSerivce }  />
+        <WorkbenchPage
+          srv={ this.workbenchCoreSerivce }  />
       </div>
     );
   }

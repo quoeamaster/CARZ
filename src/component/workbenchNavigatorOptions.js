@@ -7,9 +7,14 @@ export class WorkbenchNavigatorOption extends React.Component {
     super(props);
     this.state = {
       iconClass: this.props.iconClass,
-      label: this.props.label,
 
-      pressed: false
+      pressed: false,
+
+      clickDelegate: this.props.clickDelegate
+      // clickDelegateId: this.props.clickDelegateId,
+      // clickDelegates: this.props.clickDelegates,
+      /* data model for this button component */
+      // model: this.props.model
     };
   }
 
@@ -57,9 +62,11 @@ export class WorkbenchNavigatorOption extends React.Component {
 
   render() {
     return (
-      <div className="workbench-option display-inline-block cursor-pointer">
+      <div
+        onClick={ this.state.clickDelegate }
+        className="workbench-option display-inline-block cursor-pointer">
         <i className={this.state.iconClass} />
-        <span>{this.state.label}</span>
+        <span>{this.props.label}</span>
       </div>
     );
   }

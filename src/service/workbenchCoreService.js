@@ -7,7 +7,7 @@ export class WorkbenchCoreService {
 
   _initByConfig(_cfg) {
     this.services = {
-      workbenchNavigatorService: new WorkbenchNavigatorService()
+      workbenchNavigatorService: new WorkbenchNavigatorService(_cfg)
     };
   }
 

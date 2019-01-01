@@ -19,17 +19,35 @@ export class WorkbenchPage extends React.Component {
     }
     let _updated = _srv.addDelegates({
       delegates: {
-        hamburgerIconClick: this._navigatorHamburgerClick
+        hamburgerIconClick: this._navigatorHamburgerClick,
+        navLoginLogoutClick: this._navigatorLoginClick,
+        navWikiClick: this._navigatorWikiClick,
+        navAboutClick: this._navigatorAboutClick
       }
     });
-    if (_updated) { console.log('updated delegate for workbenchNavigatorService'); }
+    if (_updated) {
+      console.log('updated delegate for workbenchNavigatorService');
+      this.props.srv.updateServiceByName("workbenchNavigatorService", _srv);
+    }
   }
 
   /* -------------------------------- */
   /*  navigator related delegate(s)   */
+  /*  - every app should declare      */
+  /*    its own delegate              */
+  /*    implementations               */
   /* -------------------------------- */
   _navigatorHamburgerClick() {
-    console.log('clicked the hamburger');
+    console.log('clicked the hamburger ver2');
+  }
+  _navigatorLoginClick() {
+    console.log('nav login/logout click');
+  }
+  _navigatorWikiClick() {
+    console.log('nav wiki clicked');
+  }
+  _navigatorAboutClick() {
+    console.log('nav about clicked');
   }
 
   componentDidMount() {
@@ -39,7 +57,8 @@ export class WorkbenchPage extends React.Component {
   render() {
     return (
       <div>
-        <WorkbenchNavigator srv={this.props.srv} />
+        <WorkbenchNavigator
+          srv={this.props.srv} />
       </div>
     );
   }
