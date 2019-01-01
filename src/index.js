@@ -6,7 +6,10 @@ import {
 } from './component/index';
 
 //import { BaseService } from './service/index';
-import { WorkbenchCoreService } from './service/index';
+import {
+  WorkbenchCoreService,
+  AuthTwoService
+} from './service/index';
 
 import './css/core.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +34,7 @@ class PageContainer extends React.Component {
    */
   _initServices() {
     this.workbenchCoreSerivce = new WorkbenchCoreService();
+    this.authTwoService = new AuthTwoService();
   }
 
   /**
